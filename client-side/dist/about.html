@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact Us - Blood Management Project</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+
+            .container {
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                max-width: 800px;
+                margin: 30px auto;
+                padding: 20px;
+            }
+
+            h1 {
+                color: IndianRed;
+            }
+
+            .team-member {
+                margin: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .team-member img {
+                width: 150px;
+                border-radius: 50%;
+                margin-bottom: 10px;
+            }
+
+            p {
+                text-align: center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <nav class="bg-red-400">
+            <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+                <div class="relative flex h-16 items-center justify-between">
+                    <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                        <!-- Mobile menu button-->
+                        <button type="button"
+                            class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                            aria-controls="mobile-menu" aria-expanded="false">
+                            <span class="absolute -inset-0.5"></span>
+                            <span class="sr-only">Open main menu</span>
+                            <!--
+                      Icon when menu is closed.
+          
+                      Menu open: "hidden", Menu closed: "block"
+                    -->
+                            <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                            </svg>
+                            <!--
+                      Icon when menu is open.
+          
+                      Menu open: "block", Menu closed: "hidden"
+                    -->
+                            <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex flex-1 items-center justify-center sm:items-center sm:justify-start">
+                        <div class="flex flex-shrink-0 items-center">
+                            <img class="h-16 w-auto" src="logo1.png" alt="Donate Blood">
+                        </div>
+                        <div class="hidden sm:ml-6 sm:block">
+                            <div class="flex space-x-4">
+                                <!-- Current: "bg-gray-900 text-white", Default: "text-white hover:bg-gray-700 hover:text-white" -->
+                                <a href="index.html" class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium"
+                                    >Home</a>
+                                <a href="hospitals.html"
+                                    class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm active:bg-black font-medium">Hospitals</a>
+                                <a href="about.html"
+                                    class="text-white active hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">About Us</a>
+                                <a href="contact.html"
+                                    class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contact
+                                    Us</a>
+                                    <!-- <a href="profile.html"
+                                    class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Profile
+                                    </a> -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                        <button type="button"
+                            class="relative rounded-full bg-gray-100 p-1 text-black-400 hover:text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                            <span class="absolute -inset-1.5"></span>
+                            <span class="sr-only">View notifications</span>
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                            </svg>
+                            <a href="recentReq.html"></a>
+                        </button>
+                        <div class="m-1"></div>
+                        <button
+                            class="relative rounded-full p-1 bg-gray-900 text-white hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                            <a href="login.html" class=" rounded-full px-3  py-2 font-medium " aria-current="page">Log
+                                in</a>
+                        </button>
+                    </div> -->
+                    <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                        <a href="recentReq.html">
+                            <button
+                                class="relative rounded-full bg-gray-100 p-1 text-black-400 hover:text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                                <span class="absolute -inset-1.5"></span>
+                                <span class="sr-only">View notifications</span>
+                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                                </svg>
+                            </button>
+                        </a>
+                        <button
+                            class="relative rounded-full p-1 bg-gray-900 text-white hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                            <a href="userlogin.html" class="rounded-full px-3  py-2 font-medium " aria-current="page">Log in</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile menu, show/hide based on menu state. -->
+            <div class="sm:hidden" id="mobile-menu">
+                <div class="space-y-1 px-2 pb-3 pt-2">
+                    <!-- Current: "bg-gray-900 text-white", Default: "text-white hover:bg-gray-700 hover:text-white" -->
+                    <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
+                        aria-current="page">Home</a>
+                    <a href="#"
+                        class="text-white hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">About
+                        Us</a>
+                    <a href="#"
+                        class="text-white hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Contact
+                        Us</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="bg-red-100 py-12 mt-5 sm:py-10 ">
+            <div class="mx-auto flex justify-evenly items-center h-screen">
+                <div class="max-w-2xl">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">About Us</h2>
+                    <p class="mt-6 text-lg leading-8 text-gray-600"> We are dedicated to revolutionizing the way blood
+                        banks manage their inventories and how recipients find the blood they need. Our website serves
+                        as a platform for seamless blood donation and management, bridging the gap between donors and
+                        hospitals.
+                        With our platform, donors can easily locate specific hospitals' blood banks and make donations,
+                        ensuring a constant supply of blood. Simultaneously, hospitals can efficiently update their
+                        inventory, providing real-time information on the availability of blood for particular blood
+                        groups.
+                        No longer do recipients have to physically visit multiple blood banks to search for the blood
+                        they need. They can simply check online to see if a specific blood group is available in a
+                        particular hospital's blood bank. Our project aims to save lives, reduce the hassle of blood
+                        procurement, and promote the spirit of voluntary blood donation.</p>
+                </div>
+                <ul role="list" class=" flex flex-col items-center justify-center">
+
+                    <li class="m-4 flex items-center gap-x-6  w-full">
+                        <img class="h-16 w-16 rounded-full" src="../src/picofme (3).png" alt="">
+                        <div>
+                            <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">Lakshay Bansal
+                            </h3>
+                            <p class="text-sm font-semibold leading-6 text-red-600">Backend Lead</p>
+                        </div>
+                    </li>
+
+                    <li class="m-4 flex items-center gap-x-6  w-full">
+
+                        <img class="h-16 w-16 rounded-full"
+                            src="../src/yash.jpeg" alt="">
+                        <div>
+                            <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">Yash Gupta</h3>
+                            <p class="text-sm font-semibold leading-6 text-red-600">Frontend </p>
+                        </div>
+
+                    </li>
+                    <li class="m-4 flex items-center gap-x-6  w-full">
+
+                        <img class="h-16 w-16 rounded-full" src="../src/picofme (1) (1).png" alt="">
+                        <div>
+                            <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">Dhruv Jindal</h3>
+                            <p class="text-sm font-semibold leading-6 text-red-600">Fontend Lead</p>
+                        </div>
+
+                    </li>
+                    <li class="m-4 flex items-center gap-x-6  w-full">
+
+                        <img class="h-16 w-16 rounded-full" src="../src/picofme (2) (1).png" alt="">
+                        <div>
+                            <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">Samarpit Aggarwal
+                            </h3>
+                            <p class="text-sm font-semibold leading-6 text-red-600">Project Manager</p>
+                        </div>
+
+                    </li>
+
+                    <!-- More people... -->
+                </ul>
+            </div>
+        </div>
+
+
+    </body>
+
+    </html>
+</body>
+
+</html>
