@@ -29,7 +29,7 @@ document.getElementById('bloodDonationForm').addEventListener('submit', function
     .then(data => {
         if (data.success) {
             // Redirect to the success page
-            window.location.href = "http://localhost:5500/frontend/dist/index.html";
+            window.location.href = "http://localhost:5500/client-side/dist/index.html";
             alert('Blood inventory record created successfully.');
         } else {
             // Handle errors, display an error message

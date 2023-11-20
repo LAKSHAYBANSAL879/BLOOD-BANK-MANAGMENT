@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
           if (data.success) {
             // User signup was successful
             // console.log('User signed up successfully');
-            window.location.href="http://localhost:5500/frontend/dist/userlogin.html";
+            window.location.href="http://localhost:5500/client-side/dist/userlogin.html";
             // You can redirect the user to another page or show a success message.
           } else {
             // Signup failed

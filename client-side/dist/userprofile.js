@@ -51,7 +51,7 @@ console.log(token);
                 if (response.status === 200) {
                     document.cookie = "token=; Max-Age=0; Path=/";
                     alert("User Logged out sucessfully")
-                    window.location.href = "http://localhost:5500/frontend/dist/userlogin.html";
+                    window.location.href = "http://localhost:5500/client-side/dist/userlogin.html";
                 } else {
                     alert("Error logging out");
                 }

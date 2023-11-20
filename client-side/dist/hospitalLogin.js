@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 console.log(token);
         if (token) {
             // If token exists, the user is already logged in
-            window.location.href = "http://localhost:5500/frontend/dist/hospitalprofile.html";
+            window.location.href = "http://localhost:5500/client-side/dist/hospitalprofile.html";
         }
     } catch (error) {
         console.error("Error:", error);
@@ -37,7 +37,7 @@ console.log(token);
                 const { token, org} = await response.json();
                 if (org && org.name) {
                     document.cookie = `token=${token}; Max-Age=172800; Path=/`;
-                    window.location.href = "http://localhost:5500/frontend/dist/hospitalprofile.html";
+                    window.location.href = "http://localhost:5500/client-side/dist/hospitalprofile.html";
                 } else {
                     document.getElementById("message").textContent = "Login failed. Please try again.";
                 }

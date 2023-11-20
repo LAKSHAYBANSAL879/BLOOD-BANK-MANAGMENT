@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="output.css" rel="stylesheet">
-
+    <title>Top Donors</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="output.css">
 </head>
-
-<body>
+<body class="bg-gray-100">
     <nav class="bg-red-400">
         <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div class="relative flex h-16 items-center justify-between">
@@ -51,25 +49,16 @@
                             <a href="index.html" class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium"
                                 aria-current="page">Home</a>
                             <a href="hospitals.html"
-                                class="text-white hover:bg-gray-700 active hover:text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Hospitals</a>
+                                class="text-white hover:bg-gray-700  hover:text-white rounded-md px-3 py-2 text-sm font-medium" >Hospitals</a>
                             <a href="about.html"
                                 class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About Us</a>
                             <a href="contact.html"
                                 class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contact
                                 Us</a>
                                 <a href="topDonar.html"
-                                class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Top-donars
+                                class="text-white active hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Top-donars
                                 </a>
-                                <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-                                    <label for="search" class="sr-only">Search Hospitals</label>
-                                    <input
-                                        type="text"
-                                        id="search"
-                                        name="search"
-                                        class="flex w-full  p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                        placeholder="Search hospitals..."
-                                    />
-                                </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -130,99 +119,47 @@
         </div>
     </nav>
     
+    <div class="container mx-auto p-4">
+        <h1 class="text-2xl font-bold mb-4">Top Donors</h1>
+        
+        <div id="topDonorsList" class="flex flex-col gap-2 "></div>
 
-  
-
-   <div id="hospitalList" class="flex flex-col gap-3 justify-start basis-auto"></div>
-
-<script>
    
-    document.addEventListener('DOMContentLoaded', function () {
-            const searchInput = document.getElementById('search');
+    </div>
+    <script>
+document.addEventListener("DOMContentLoaded", async function () {
+    try {
+        const response = await fetch("http://localhost:8080/api/v1/inventory/top-donar"); // Update the URL accordingly
+        const data = await response.json();
 
-            // Event listener for the input field
-            searchInput.addEventListener('input', function () {
-                const searchTerm = this.value.toLowerCase();
+        if (data.success) {
+            const topDonorsList = document.getElementById("topDonorsList");
 
-                // Make an AJAX request to retrieve the list of hospitals
-                fetch('http://localhost:8080/api/v1/auth/getHospitals', {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                })
-                    .then((response) => response.json())
-                    .then((data) => {
-                        if (data.success) {
-                            const filteredHospitals = filterHospitals(data.hospital, searchTerm);
-                            displayHospitalList(filteredHospitals);
-                        }
-                    })
-                    .catch((error) => {
-                        console.error('Error:', error);
-                    });
+            data.data.forEach(donor => {
+                const donorCard = document.createElement("div");
+                donorCard.classList.add("bg-white", "p-4", "rounded", "shadow-md");
+
+                const donorName = document.createElement("h2");
+                donorName.classList.add("text-lg", "font-semibold", "mb-2");
+                donorName.textContent = donor.name;
+
+                const donorDetails = document.createElement("p");
+                donorDetails.textContent = `Quantity: ${donor.quantity}`; 
+
+                donorCard.appendChild(donorName);
+                donorCard.appendChild(donorDetails);
+
+                topDonorsList.appendChild(donorCard);
             });
+        } else {
+            console.error(data.error);
+        }
+    } catch (error) {
+        console.error(error);
+    }
+});
 
-            function filterHospitals(hospitalList, searchTerm) {
-                return hospitalList.filter((hospital) => {
-                    return (
-                        hospital.name.toLowerCase().includes(searchTerm) ||
-                        hospital.email.toLowerCase().includes(searchTerm) ||
-                        // hospital.phone.includes(searchTerm) ||
-                        hospital.website.toLowerCase().includes(searchTerm) ||
-                        hospital.address.toLowerCase().includes(searchTerm)
-                    );
-                });
-            }
-
-            function displayHospitalList(hospitalList) {
-                const hospitalListElement = document.getElementById('hospitalList');
-                // Clear previous results
-                hospitalListElement.innerHTML = '';
-
-                hospitalList.forEach((hospital) => {
-                    const hospitalDiv = document.createElement('div');
-                    hospitalDiv.className = "flex flex-row mt-2 justify-between bg-gray-100 rounded-2xl p-4 cursor-pointer basis-auto";
-
-                    hospitalDiv.innerHTML = `
-                        <a href="hospitalAnalytic.html?hospital=${hospital.name}" class="flex flex-row basis-auto">
-                            <div class="flex flex-col basis-auto">
-                                <p class="text-2xl font-bold leading-6 text-black">${hospital.name}</p>
-                                <p class="mt-3 truncate text-lg leading-5 text-gray-500">${hospital.email}</p>
-                                <p class="mt-1 truncate text-base leading-5 font-bold text-green-700">${hospital.phone}</p>
-                            </div>
-                            <div class="flex flex-col justify-center items-center">
-                                <a href="${hospital.website}" class="mt-1 truncate text-lg leading-5 text-blue-500 hover:underline">Hospital website</a>
-                                <p class="mt-2 text-lg font-bold leading-5 text-gray-500">${hospital.address}</p>
-                            </div>
-                        </a>
-                    `;
-
-                    hospitalListElement.appendChild(hospitalDiv);
-                });
-            }
-
-            // Initial display of hospitals
-            fetch('http://localhost:8080/api/v1/auth/getHospitals', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    if (data.success) {
-                        displayHospitalList(data.hospital);
-                    }
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
-        });
-</script>
-
-
-
+            
+    </script>
 </body>
-
 </html>

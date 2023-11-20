@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     // }
                    const hospitalDetails=data.data.org;
                     localStorage.setItem('hospitalDetails', JSON.stringify(hospitalDetails));
-                    window.location.href = 'http://localhost:5500/frontend/dist/hospitalLogin.html';
+                    window.location.href = 'http://localhost:5500/frontend/client-side/hospitalLogin.html';
                 } else {
                     // Signup failed
                     console.error('Signup failed:', data.message);

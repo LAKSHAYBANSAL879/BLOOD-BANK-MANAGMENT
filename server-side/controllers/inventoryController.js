@@ -5,7 +5,7 @@ const Inventory = require("../models/inventoryModel");
 // CREATE INVENTORY
 const createInventoryController = async (req, res) => {
   try {
-    const { bloodGroup, quantity, email,  name, phone, inventoryType } = req.body;
+    const { bloodGroup, quantity, email,  name, phone, inventoryType,role } = req.body;
 
     // Check if the user's role is 'donar' or 'hospital'
     // if (role !== 'donar' && role !== 'hospital') {
@@ -25,7 +25,8 @@ const createInventoryController = async (req, res) => {
       bloodGroup,
       quantity,
       email,
-      phone
+      phone,
+      role
     });
 
     await inventory.save();
@@ -109,8 +110,30 @@ console.log(bloodGroupLetter);
 };
 
 
+const getTopDonorsController = async (req, res) => {
+  try {
+    
+    const topDonors = await Inventory.find({ inventoryType: 'in',role:'individual'})
+      .sort({ quantity: -1 }) 
+      .limit(10); 
+
+    return res.status(200).json({
+      success: true,
+      message: "Top donors retrieved successfully",
+      data: topDonors,
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      success: false,
+      message: "Error in get top donors API",
+      error: error.message,
+    });
+  }
+};
 
 module.exports = {
   createInventoryController,
   getInventoryController,
+  getTopDonorsController
 };

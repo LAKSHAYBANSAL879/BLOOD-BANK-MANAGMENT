@@ -62,6 +62,9 @@
                                 <!-- <a href="profile.html"
                                 class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Profile
                                 </a> -->
+                                <a href="topDonar.html"
+                                class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Top-donars
+                                </a>
                         </div>
                     </div>
                 </div>
@@ -161,7 +164,7 @@
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script type="text/javascript">
         (function () {
-            // Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
+            
             emailjs.init('Sx4o6vx7xG2hKlQda');
         })();
     </script>
@@ -169,9 +172,9 @@
         window.onload = function () {
             document.getElementById('contact-form').addEventListener('submit', function (event) {
                 event.preventDefault();
-                // Generate a five-digit number for the contact_number variable
+                
                 this.contact_number.value = Math.random() * 100000 | 0;
-                // These IDs from the previous steps (replace with your actual service ID and template ID)
+       
                 emailjs.sendForm('service_ewumrwj', 'template_2ga52i2', this)
                     .then(function () {
                         console.log('SUCCESS!');

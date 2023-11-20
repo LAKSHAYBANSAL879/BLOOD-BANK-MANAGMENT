@@ -24,6 +24,11 @@ const inventorySchema = new mongoose.Schema(
     email: {
       type: String,
       required: [true, "Donor Email is Required"],
+    },
+    role:{
+      type:String,
+      required:true,
+enum:["individual","hospital"]
     }
   },
   { timestamps: true }
