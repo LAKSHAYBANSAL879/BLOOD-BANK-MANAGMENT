@@ -15,7 +15,7 @@
                     <!-- Mobile menu button-->
                     <button type="button"
                         class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-                        aria-controls="mobile-menu" aria-expanded="false">
+                        aria-controls="mobile-menu" aria-expanded="false" onclick="toggleMenu()">
                         <span class="absolute -inset-0.5"></span>
                         <span class="sr-only">Open main menu</span>
                         <!--
@@ -61,25 +61,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                    <button type="button"
-                        class="relative rounded-full bg-gray-100 p-1 text-black-400 hover:text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                        <span class="absolute -inset-1.5"></span>
-                        <span class="sr-only">View notifications</span>
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                            aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-                        </svg>
-                        <a href="recentReq.html"></a>
-                    </button>
-                    <div class="m-1"></div>
-                    <button
-                        class="relative rounded-full p-1 bg-gray-900 text-white hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                        <a href="login.html" class=" rounded-full px-3  py-2 font-medium " aria-current="page">Log
-                            in</a>
-                    </button>
-                </div> -->
+                
                 <a href="recentReq.html" class="relative">
                   
                     <button class="relative rounded-full p-1 bg-gray-100 text-black-400 hover:text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
@@ -103,23 +85,29 @@
             </div>
         </div>
         <!-- Mobile menu, show/hide based on menu state. -->
-        <div class="sm:hidden" id="mobile-menu">
-            <div class="space-y-1 px-2 pb-3 pt-2">
-                <!-- Current: "bg-gray-900 text-white", Default: "text-white hover:bg-gray-700 hover:text-white" -->
-                <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
+        <div class="sm:hidden " id="mobile-menu" style="display: none;">
+            <div class="space-y-1 px-2  pb-3 pt-2">
+                
+                <a href="index.html" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
                     aria-current="page">Home</a>
-                <a href="#"
+                <a href="about.html"
                     class="text-white hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">About
                     Us</a>
-                <a href="#"
+                <a href="contact.html"
                     class="text-white hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Contact
                     Us</a>
+                    <a href="hospitals.html"
+                    class="text-white hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Hospitals
+                    </a>
+                    <a href="topDonar.html"
+                    class="text-white hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Top-donars
+                    </a>
             </div>
         </div>
     </nav>
-    <div class="flex w-full h-full items-center justify-evenly mt-3 bg-red-100 p-5">
+    <div class="flex  md:flex-row  w-full h-full items-center justify-evenly mt-3 bg-red-100 p-5">
         <div class="">
-            <img src="photo.jpg" alt="Background" class="rounded-full border-2 max-w-xl max-h-xl">
+            <img src="photo.jpg" alt="Background" class="rounded-full border-2  max-w-xl max-h-xl">
         </div>
         <div class="text-center">
             <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-3xl">Once a blood donor, always a
@@ -141,6 +129,11 @@
             </div>
         </div>
     </div>
-  
+  <script>
+    function toggleMenu() {
+        const mobileMenu = document.getElementById("mobile-menu");
+        mobileMenu.style.display = mobileMenu.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
 </body>
 </html>
